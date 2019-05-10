@@ -8,6 +8,8 @@ import java.util.concurrent.ThreadLocalRandom
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var result : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -15,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener {
             rollDice()
         }
+        result = findViewById(R.id.result_image)
     }
 
     private fun rollDice() {
         val random = ThreadLocalRandom.current().nextInt(1, 7)
-        val result: ImageView = findViewById(R.id.result_image)
 
         val drawableImage = when (random) {
             1 -> R.drawable.dice_1
